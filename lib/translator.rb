@@ -14,10 +14,19 @@ def load_library(path)
 end
 
 def get_japanese_emoticon(path, emoticon)
-  load_library(path)
-
+  result = load_library(path)
+  if result["get_emoticon"].has_key?(emoticon)
+    result["get_emoticon"][emoticon]
+  else
+    "Sorry, that emoticon was not found"
+  end
 end
 
 def get_english_meaning(path, emoticon)
-  load_library(path)
+  result = load_library(path)
+  if result["get_meaning"].has_key?(emoticon)
+    result["get_meaning"][emoticon]
+  else
+    "Sorry, that emoticon was not found"
+  end
 end
